@@ -1,0 +1,21 @@
+\usepackage{amsmath}
+\newcommand\tline[2]{$\underset{\text{#1}}{\text{\underline{\hspace{#2}}}}$} % command for a text under a line
+\newcommand\tlinet[2]{$\underset{\text{#1}}{\text{\underline{#2}}}$}
+
+% Оформляем комманды и ключи жирным моноширинным шрифтом
+\newcommand{\cmd}[1]{
+  \texttt{\textbf{#1}}
+  }
+  
+\newcommand{\pic}[3]{
+  \begin{figure}[H]
+    \centering%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \includegraphics[interpolate, width=0.8\textwidth]{#3#1}%%%%%%%%%%%%%%%%%%%%%%%%
+    \caption{#2}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \label{fig:#1}
+  \end{figure}
+  }
+  
+\makeatletter
+\newcommand{\keepwithnext}{\@beginparpenalty 10000}
+\makeatother

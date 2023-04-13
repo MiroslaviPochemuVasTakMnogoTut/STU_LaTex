@@ -1,0 +1,184 @@
+% \documentclass[fontsize=14pt, paper=a4, pagesize, DIV=calc]{scrreprt}
+% разобраться с отступами меж абзацами
+% подпись таблиц
+
+\usepackage[
+  top=20mm,
+  bottom=20mm, 
+  left=30mm,
+  right=10mm,
+  includeheadfoot,
+  nohead,
+  ]{geometry}
+
+
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{enumitem}
+% \setlist{topsep=1.5\baselineskip}
+
+% \usepackage{ragged2e}
+
+
+% \usepackage{polyglossia}
+% \setdefaultlanguage{russian} %% устанавливает главный язык документа
+% \setotherlanguage{english} %% устанавливает второй язык документа
+% \defaultfontfeatures{Ligatures=TeX} %% задаёт свойства шрифтов по умолчанию
+% \setmainfont{Times New Roman}
+% \setsansfont{Arial} %% задаёт шрифт без засечек
+% \setmonofont{Times New Roman} %% задаёт моноширинный шрифт
+% doesn't work properly with lipsum, apparently
+
+
+\usepackage[main=russian, english]{babel}
+\babelfont{rm}{Times New Roman}
+\babelfont{sf}{Arial}
+\babelfont{tt}{FreeMono}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\newfontfamily\codefont[Scale=MatchLowercase]{Consolas}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+
+\setlength{\parindent}{1,25cm}
+\setlength{\parskip}{0.4\baselineskip}
+
+% getting that justfied w*rd look
+% comment two lines below to get hyphenation back and get rid of infinite amount of overfull warnings
+\usepackage[none]{hyphenat}
+\sloppy
+
+
+\usepackage{array} % using this go get a table going for the title page
+
+
+\renewcaptionname{russian}{\contentsname}{\MakeUppercase{Содержание}}%Table of contents
+\renewcaptionname{russian}{\listfigurename}{Список рисунков}%Figures
+\renewcaptionname{russian}{\listtablename}{Таблицы}%Tables
+\renewcaptionname{russian}{\figurename}{Рисунок} %Figure
+\renewcaptionname{russian}{\tablename}{Таблица} %Table
+\renewcaptionname{russian}{\lstlistingname}{Листинг}
+
+
+\setlength{\intextsep}{24pt}
+
+
+\usepackage{chngcntr}
+\counterwithout{section}{chapter}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}{\normalfont\Large\bfseries\filcenter}{}{0em}{}
+\titlespacing*{\chapter}{0pt}{0pt}{24pt}
+
+\titleformat{\section}{\normalfont\bfseries}{\thesection.~}{1em}{}
+\titlespacing*{\section}{14pt}{24pt}{4pt}
+
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection.~}{1em}{}
+\titlespacing*{\subsection}{8pt}{24pt}{4pt}
+
+\titleformat{\subsubsection}{\normalfont\bfseries}{\thesubsubsection.~}{1em}{}
+\titlespacing*{\subsubsection}{6pt}{24t}{4pt}
+
+% ----------------------------------------------------------------
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+% \usepackage{floatrow}
+% \floatsetup[table]{position=topleft}
+% ----------------------------------------------------------------
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{dash}{ -- }% or $\vert$
+\captionsetup{
+  labelsep=dash,
+}
+\captionsetup[table]{position=top, justification=raggedright, singlelinecheck=false} % STU TABLE
+
+\usepackage{enumitem}
+\setenumerate[1]{label={\arabic*)}} % Global setting
+
+
+\usepackage{hyperref}
+\hypersetup{hidelinks, linktoc=all}
+
+
+\usepackage[
+backend=biber,
+bibencoding=utf8,
+style=gost-numeric,
+language=autobib,
+movenames=true,
+minnames = 1, 
+maxnames = 3, %сократит до первого автора с добавлением [и др.], если число авторов перевышает maxnames
+autocite=superscript,
+natbib=true
+]{biblatex}
+
+\usepackage{etoolbox}
+\addbibresource{a.bib}
+\usepackage{textcase} % добавляем пакет textcase
+%Приведение списка литературы к требованим СФУ
+\renewcommand*{\mkgostheading}[1]{{#1}}
+\toggletrue{bbx:gostbibliography}%
+\renewcommand*{\revsdnamepunct}{\addcomma}%Добавление запятой после фамилии и перед инициалами
+\renewcommand*{\labelnamepunct}{\addperiod\space}
+% \usepackage[language=english]{lipsum} % just to test if thing are working correctly
+\urlstyle{same} % changing url font to the one we use for the rest of the text
+\usepackage{graphicx}
+\graphicspath{ {./pics/} }
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.svg}
+\usepackage{float} % used to make figures actually stay in the place we put them in
+% \usepackage[section]{placeins}
+\usepackage{scrhack} % stop the compiler from complaining
+% \renewcommand{\refname}{Список использованных источников}
+\defbibheading{bibliography}{%
+    \chapter*{\MakeUppercase{Список использованных источников}}% заголовок на странице
+    \addcontentsline{toc}{chapter}{Список использованных источников}% заголовок в содержании
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.98,0.98,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+
+\usepackage{indentfirst}
+        
+\usepackage{mfirstuc} %first letter capitalizer
+
+\usepackage{titletoc}
+  
+\titlecontents{chapter}
+[0em]                   % adjust left margin
+{\rmfamily}             % font formatting
+{}{}{\titlerule*[1pc]{.}\contentspage}
+% \titleformat{}
