@@ -46,9 +46,7 @@
 \usepackage[none]{hyphenat}
 \sloppy
 
-
 \usepackage{array} % using this go get a table going for the title page
-
 
 \renewcaptionname{russian}{\contentsname}{\MakeUppercase{Содержание}}%Table of contents
 \renewcaptionname{russian}{\listfigurename}{Список рисунков}%Figures
@@ -57,13 +55,10 @@
 \renewcaptionname{russian}{\tablename}{Таблица} %Table
 \renewcaptionname{russian}{\lstlistingname}{Листинг}
 
-
 \setlength{\intextsep}{24pt}
 
-
 \usepackage{chngcntr}
-\counterwithout{section}{chapter}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\counterwithout{section}{chapter}%%%%%%%%%%%%%%%% счетчик не сбрасывается после chapter
 
 \usepackage{titlesec}
 
@@ -71,13 +66,13 @@
 \titlespacing*{\chapter}{0pt}{0pt}{24pt}
 
 \titleformat{\section}{\normalfont\bfseries}{\thesection.~}{1em}{}
-\titlespacing*{\section}{14pt}{24pt}{4pt}
+\titlespacing*{\section}{1.25cm}{24pt}{4pt}
 
 \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection.~}{1em}{}
-\titlespacing*{\subsection}{8pt}{24pt}{4pt}
+\titlespacing*{\subsection}{1.25cm}{24pt}{4pt}
 
 \titleformat{\subsubsection}{\normalfont\bfseries}{\thesubsubsection.~}{1em}{}
-\titlespacing*{\subsubsection}{6pt}{24t}{4pt}
+\titlespacing*{\subsubsection}{1.25cm}{24t}{4pt}
 
 % ----------------------------------------------------------------
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
@@ -98,7 +93,6 @@
 
 \usepackage{hyperref}
 \hypersetup{hidelinks, linktoc=all}
-
 
 \usepackage[
 backend=biber,
@@ -164,12 +158,8 @@ natbib=true
 
 \lstset{style=mystyle}
 
-
-
-\usepackage{indentfirst}
-        
+\usepackage{indentfirst}        
 \usepackage{mfirstuc} %first letter capitalizer
-
 \usepackage{titletoc}
   
 \titlecontents{chapter}
