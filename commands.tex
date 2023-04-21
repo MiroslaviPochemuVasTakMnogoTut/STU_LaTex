@@ -15,6 +15,14 @@
     \label{fig:#1}
   \end{figure}
   }
+\newcommand{\pics}[2]{
+  \begin{figure}[H]
+    \centering%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \includegraphics[interpolate, width=0.8\textwidth]{/pics/#1}%%%%%%%%%%%%%%%%%%%%%%%%
+    \caption{#2}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \label{fig:#1}
+  \end{figure}
+  }
   
 \makeatletter
 \newcommand{\keepwithnext}{\@beginparpenalty 10000}
