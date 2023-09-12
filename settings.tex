@@ -91,8 +91,13 @@
 \setenumerate[1]{label={\arabic*)}} % Global setting
 \setlist[enumerate]{
     leftmargin=0pt,
+    partopsep=0pt,
+    topsep=0pt,
+    parsep=0pt,
+    listparindent=0pt,
     itemindent=\parindent
 }
+
 \setlist{noitemsep}
 % \usepackage{paralist}
 
@@ -100,6 +105,29 @@
 
 \usepackage{hyperref}
 \hypersetup{hidelinks, linktoc=all}
+
+% \makeatletter
+% \renewenvironment{thebibliography}[1]
+%      {\chapter*{\MakeUppercase\refname}%
+%       \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+%       \list{\@biblabel{\@arabic\c@enumiv}}%
+%            {\settowidth\labelwidth{\@biblabel{#1}}%
+%             \setlength{\itemindent}{\parindent}
+%             \leftmargin\z@
+%             \@openbib@code
+%             \usecounter{enumiv}%
+%             \let\p@enumiv\@empty
+%             \renewcommand\theenumiv{\@arabic\c@enumiv}
+%             }%
+%       \sloppy
+%       \clubpenalty4000
+%       \@clubpenalty \clubpenalty
+%       \widowpenalty4000%
+%       \sfcode`\.\@m}
+%      {\def\@noitemerr
+%        {\@latex@warning{Empty `thebibliography' environment}}%
+%       \endlist}
+% \makeatother
 
 \usepackage[
 backend=biber,
@@ -115,6 +143,9 @@ natbib=true
 
 \usepackage{etoolbox}
 \addbibresource{a.bib}
+
+\BeforeBeginEnvironment{enumerate}{\setlength{\parskip}{0pt}}
+\AfterEndEnvironment{enumerate}{\setlength{\parskip}{\baselineskip}}
 \usepackage{textcase} % добавляем пакет textcase
 %Приведение списка литературы к требованим СФУ
 \renewcommand*{\mkgostheading}[1]{{#1}}
