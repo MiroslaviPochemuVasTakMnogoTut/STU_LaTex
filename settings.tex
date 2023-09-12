@@ -75,13 +75,13 @@
 \titlespacing*{\subsubsection}{1.25cm}{24t}{4pt}
 
 % ----------------------------------------------------------------
-\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thefigure}{\arabic{figure}}
 \renewcommand{\thetable}{\arabic{section}.\arabic{table}}
 % \usepackage{floatrow}
 % \floatsetup[table]{position=topleft}
 % ----------------------------------------------------------------
 \usepackage{caption}
-\DeclareCaptionLabelSeparator{dash}{ -- }% or $\vert$
+\DeclareCaptionLabelSeparator{dash}{ --- }% or $\vert$
 \captionsetup{
   labelsep=dash,
 }
@@ -89,7 +89,13 @@
 
 \usepackage{enumitem}
 \setenumerate[1]{label={\arabic*)}} % Global setting
+\setlist{
+    leftmargin=0pt,
+    itemindent=\parindent
+}
 \setlist{noitemsep}
+% \usepackage{paralist}
+
 
 
 \usepackage{hyperref}
