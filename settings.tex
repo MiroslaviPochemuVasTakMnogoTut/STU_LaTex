@@ -63,7 +63,7 @@
 \usepackage{titlesec}
 
 \titleformat{\chapter}{\normalfont\Large\bfseries\filcenter}{}{0em}{}
-\titlespacing*{\chapter}{0pt}{0pt}{24pt}
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
 
 \titleformat{\section}{\normalfont\bfseries}{\thesection.~}{1em}{}
 \titlespacing*{\section}{1.25cm}{24pt}{4pt}
@@ -90,6 +90,14 @@
 \usepackage{enumitem}
 \setenumerate[1]{label={\arabic*)}} % Global setting
 \setlist[enumerate]{
+    leftmargin=0pt,
+    partopsep=0pt,
+    topsep=0pt,
+    parsep=0pt,
+    listparindent=0pt,
+    itemindent=\parindent
+}
+\setlist[itemize]{
     leftmargin=0pt,
     partopsep=0pt,
     topsep=0pt,
