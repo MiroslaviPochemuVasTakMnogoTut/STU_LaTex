@@ -76,7 +76,10 @@
 
 % ----------------------------------------------------------------
 \renewcommand{\thefigure}{\arabic{figure}}
-\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+\usepackage{multirow}
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 % \usepackage{floatrow}
 % \floatsetup[table]{position=topleft}
 % ----------------------------------------------------------------
