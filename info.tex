@@ -1,3 +1,26 @@
 \setcounter{chapter}{0} % для нумерации рисунков и прочего
 
 \noindent % после картинок и прочего
+
+% Пример таблицы
+\begin{table}
+	\caption{table}
+	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+		\hline
+		      & \multicolumn{8}{|c|}{Переменные}                                                        & \multirow{2}{4em}{$b_i$}\\
+		\cline{1-9}
+		Базис & x1                               & x2                     & x3 & x4 & x5 & x6 & x7 & x8 &    \\
+		\hline
+		x5    & 1                                & -2                     & 3  & -4 & -1 & 0  & 0  & 0  & 10 \\
+		\hline
+		x6    & -1                               & -1                     & 1  & 1  & 0  & -1 & 0  & 0  & 4  \\
+		\hline
+		x7    & -1                               & 1                      & -1 & 1  & 0  & 0  & 1  & 0  & 6  \\
+		\hline
+		x8    & 1                                & 1                      & 1  & 1  & 0  & 0  & 0  & 1  & 10 \\
+		\hline
+		cj    & -2                               & -1                     & -1 & -4 & 0  & 0  & 0  & 0  &    \\
+		\hline
+	\end{tabular}
+	\label{table}
+\end{table}
